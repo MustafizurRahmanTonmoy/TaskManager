@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class NewTaskScreen extends StatelessWidget {
-  const NewTaskScreen({super.key});
+class ProgressTaskScreen extends StatelessWidget {
+  const ProgressTaskScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('New'),
+      child: Text('Progress'),
     );
   }
 }
