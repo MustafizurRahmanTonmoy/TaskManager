@@ -1,16 +1,17 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task_manger/ui/screens/sign_up_screen.dart';
 import 'package:task_manger/ui/utils/app_colors.dart';
 import 'package:task_manger/ui/widgets/screen_backgound.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class ForgotPasswordEmailScreen extends StatefulWidget {
+  const ForgotPasswordEmailScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<ForgotPasswordEmailScreen> createState() => _ForgotPasswordEmailScreenState();
 }
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _ForgotPasswordEmailScreenState extends State<ForgotPasswordEmailScreen> {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
@@ -26,19 +27,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
               children: [
                 const SizedBox(height: 90),
                 Text(
-                  'Join With Us',
+                  'Your Email Address',
                   style: textTheme.displaySmall?.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 const SizedBox(height: 24),
-                _buildSignUpForm(),
+                _buildSignInForm(),
                 SizedBox(height: 24),
                 Center(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      _buildHaveAccountSection(),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          'Forgot Password ?',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      ),
+                      _buildSignUpSection(),
                     ],
                   ),
                 ),
@@ -49,31 +57,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
       ),
     );
   }
-
-
-  Widget _buildSignUpForm() {
+  Widget _buildSignInForm() {
     return Column(
       children: [
         TextFormField(
-            keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(hintText: 'Email'),
-        ),
-        SizedBox(height: 8),
-        TextFormField(
-            decoration: InputDecoration(hintText: 'First name'),
-        ),
-        SizedBox(height: 8),
-        TextFormField(
-          decoration: InputDecoration(hintText: 'Last name'),
-        ),
-        SizedBox(height: 8),
-        TextFormField(
-          keyboardType: TextInputType.phone,
-          decoration: InputDecoration(hintText: 'Mobile'),
-        ),
-        SizedBox(height: 8),
-        TextFormField(
-          decoration: InputDecoration(hintText: 'Password'),
+          keyboardType: TextInputType.emailAddress,
+          decoration: InputDecoration(hintText: 'Email'),
         ),
         SizedBox(height: 24),
         ElevatedButton(
@@ -84,7 +73,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  Widget _buildHaveAccountSection() {
+
+  Widget _buildSignUpSection() {
     return RichText(
       text:  TextSpan(
         style: TextStyle(
@@ -93,17 +83,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
           fontSize: 14,
           letterSpacing: 0.5,
         ),
-        text: "Have an account?",
+        text: "Don't have an account?",
         children: [
           TextSpan(
-              text: 'Sign In',
+              text: 'Sign Up',
               style: TextStyle(color: AppColor.themeColor),
-              recognizer: TapGestureRecognizer()..onTap = _onTapSignIn
+              recognizer: TapGestureRecognizer()..onTap = _onTapSignUp
           ),
         ],
       ),
     );
   }
+
+
 
   void _onTapNextButton(){
     //TODO : implement on tap
@@ -113,7 +105,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     // TODO: Implement on tap forgot
   }
 
-  void _onTapSignIn(){
-    Navigator.pop(context);
+  void _onTapSignUp(){
+    Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpScreen()));
   }
 }

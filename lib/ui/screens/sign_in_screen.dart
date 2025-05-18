@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task_manger/ui/screens/forgot_password_email_screen.dart';
 import 'package:task_manger/ui/screens/sign_up_screen.dart';
 import 'package:task_manger/ui/utils/app_colors.dart';
 import 'package:task_manger/ui/widgets/screen_backgound.dart';
@@ -40,7 +41,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          _onTapForgotPassword();
+                        },
                         child: Text(
                           'Forgot Password ?',
                           style: TextStyle(color: Colors.grey),
@@ -57,7 +60,26 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
     );
   }
-
+  Widget _buildSignInForm() {
+    return Column(
+      children: [
+        TextFormField(
+          keyboardType: TextInputType.emailAddress,
+          decoration: InputDecoration(hintText: 'Email'),
+        ),
+        SizedBox(height: 8),
+        TextFormField(
+          obscureText: true,
+          decoration: InputDecoration(hintText: 'Password'),
+        ),
+        SizedBox(height: 24),
+        ElevatedButton(
+          onPressed: () {},
+          child: const Icon(Icons.arrow_circle_right_outlined),
+        ),
+      ],
+    );
+  }
 
 
   Widget _buildSignUpSection() {
@@ -81,33 +103,14 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  Widget _buildSignInForm() {
-    return Column(
-      children: [
-        TextFormField(
-            keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(hintText: 'Email'),
-        ),
-        SizedBox(height: 8),
-        TextFormField(
-            obscureText: true,
-            decoration: InputDecoration(hintText: 'Password'),
-        ),
-        SizedBox(height: 24),
-        ElevatedButton(
-          onPressed: () {},
-          child: const Icon(Icons.arrow_circle_right_outlined),
-        ),
-      ],
-    );
-  }
+
 
   void _onTapNextButton(){
     //TODO : implement on tap
   }
 
   void _onTapForgotPassword(){
-    // TODO: Implement on tap forgot
+    Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPasswordEmailScreen() ));
   }
 
   void _onTapSignUp(){
