@@ -40,6 +40,9 @@ class _TaskManagerAppState extends State<TaskManagerApp> {
     return InputDecorationTheme(
       fillColor: Colors.white,
       filled: true,
+      hintStyle: TextStyle(
+        fontWeight: FontWeight.w400,
+      ),
       border: _inputBorder(),
       enabledBorder: _inputBorder(),
       errorBorder: _inputBorder(),
