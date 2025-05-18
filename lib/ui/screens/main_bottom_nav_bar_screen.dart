@@ -5,6 +5,7 @@ import 'package:task_manger/ui/screens/cancelled_task_screen.dart';
 import 'package:task_manger/ui/screens/completed_task_screen.dart';
 import 'package:task_manger/ui/screens/new_task_screen.dart';
 import 'package:task_manger/ui/screens/progress_task_screen.dart';
+import 'package:task_manger/ui/utils/app_colors.dart';
 
 class MainBottomNavBarScreen extends StatefulWidget {
   const MainBottomNavBarScreen({super.key});
@@ -26,6 +27,33 @@ class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: AppColor.themeColor,
+        title:Row(
+          children: [
+            CircleAvatar(
+              radius: 16,
+              backgroundColor: Colors.white,
+            ),
+            const SizedBox(width: 16,),
+            Expanded(
+                child:Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Mustafizur Rahman',style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white
+                    ),),
+                    Text('mustafizur@gmail.com',style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.white
+                    ),),
+                  ],
+                ),
+            ),
+          ],
+        ),
+      ),
       body: _screens[_selectedIndex],
       bottomNavigationBar: NavigationBar(
         selectedIndex: _selectedIndex,
