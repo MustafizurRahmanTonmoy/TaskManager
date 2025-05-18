@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:task_manger/ui/screens/forgot_password_email_screen.dart';
+import 'package:task_manger/ui/screens/main_bottom_nav_bar_screen.dart';
 import 'package:task_manger/ui/screens/sign_up_screen.dart';
 import 'package:task_manger/ui/utils/app_colors.dart';
 import 'package:task_manger/ui/widgets/screen_backgound.dart';
@@ -60,6 +61,7 @@ class _SignInScreenState extends State<SignInScreen> {
       ),
     );
   }
+
   Widget _buildSignInForm() {
     return Column(
       children: [
@@ -74,17 +76,18 @@ class _SignInScreenState extends State<SignInScreen> {
         ),
         SizedBox(height: 24),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            _onTapNextButton();
+          },
           child: const Icon(Icons.arrow_circle_right_outlined),
         ),
       ],
     );
   }
 
-
   Widget _buildSignUpSection() {
     return RichText(
-      text:  TextSpan(
+      text: TextSpan(
         style: TextStyle(
           color: Colors.black,
           fontWeight: FontWeight.w600,
@@ -96,24 +99,32 @@ class _SignInScreenState extends State<SignInScreen> {
           TextSpan(
             text: 'Sign Up',
             style: TextStyle(color: AppColor.themeColor),
-            recognizer: TapGestureRecognizer()..onTap = _onTapSignUp
+            recognizer: TapGestureRecognizer()..onTap = _onTapSignUp,
           ),
         ],
       ),
     );
   }
 
-
-
-  void _onTapNextButton(){
-    //TODO : implement on tap
+  void _onTapNextButton() {
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => const MainBottomNavBarScreen()),
+      (value) => false,
+    );
   }
 
-  void _onTapForgotPassword(){
-    Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPasswordEmailScreen() ));
+  void _onTapForgotPassword() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ForgotPasswordEmailScreen()),
+    );
   }
 
-  void _onTapSignUp(){
-    Navigator.push(context, MaterialPageRoute(builder: (context) => SignUpScreen()));
+  void _onTapSignUp() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SignUpScreen()),
+    );
   }
 }
