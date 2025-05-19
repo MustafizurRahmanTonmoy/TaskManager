@@ -51,6 +51,7 @@ class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
                   ],
                 ),
             ),
+            IconButton(onPressed: (){}, icon: Icon(Icons.logout)),
           ],
         ),
       ),
