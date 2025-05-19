@@ -1,11 +1,11 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:task_manger/ui/screens/cancelled_task_screen.dart';
 import 'package:task_manger/ui/screens/completed_task_screen.dart';
 import 'package:task_manger/ui/screens/new_task_screen.dart';
 import 'package:task_manger/ui/screens/progress_task_screen.dart';
 import 'package:task_manger/ui/utils/app_colors.dart';
+
+import '../widgets/tm_app_bar.dart';
 
 class MainBottomNavBarScreen extends StatefulWidget {
   const MainBottomNavBarScreen({super.key});
@@ -15,7 +15,6 @@ class MainBottomNavBarScreen extends StatefulWidget {
 }
 
 class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
-
   int _selectedIndex = 0;
   final List<Widget> _screens = const [
     NewTaskScreen(),
@@ -27,61 +26,29 @@ class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColor.themeColor,
-        title:Row(
-          children: [
-            CircleAvatar(
-              radius: 16,
-              backgroundColor: Colors.white,
-            ),
-            const SizedBox(width: 16,),
-            Expanded(
-                child:Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Mustafizur Rahman',style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.white
-                    ),),
-                    Text('mustafizur@gmail.com',style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.white
-                    ),),
-                  ],
-                ),
-            ),
-            IconButton(onPressed: (){}, icon: Icon(Icons.logout)),
-          ],
-        ),
-      ),
+      appBar: TMAppBar(),
       body: _screens[_selectedIndex],
       bottomNavigationBar: NavigationBar(
         selectedIndex: _selectedIndex,
-          onDestinationSelected: (int index) {
-            _selectedIndex = index;
-            setState(() {
-            });
-          },
-          destinations: const [
-            NavigationDestination(
-              icon: Icon(Icons.new_label),
-              label: 'new',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.check_box),
-              label: 'Completed',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.close),
-              label: 'Cancelled',
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.hourglass_bottom),
-              label: 'Progress',
-            ),
-          ],
+        onDestinationSelected: (int index) {
+          _selectedIndex = index;
+          setState(() {});
+        },
+        destinations: const [
+          NavigationDestination(icon: Icon(Icons.new_label), label: 'new'),
+          NavigationDestination(
+            icon: Icon(Icons.check_box),
+            label: 'Completed',
+          ),
+          NavigationDestination(icon: Icon(Icons.close), label: 'Cancelled'),
+          NavigationDestination(
+            icon: Icon(Icons.hourglass_bottom),
+            label: 'Progress',
+          ),
+        ],
       ),
     );
   }
 }
+
+
