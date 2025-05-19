@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_manger/ui/screens/add_new_task_screen.dart';
+import 'package:task_manger/ui/utils/app_colors.dart';
+import 'package:task_manger/ui/widgets/task_card.dart';
 import 'package:task_manger/ui/widgets/task_summary_card.dart';
 
 class NewTaskScreen extends StatefulWidget {
@@ -15,7 +17,18 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     return Scaffold(
       body: Column(
         children: [
-          _buildSummarSection(),
+          _buildSummarySection(),
+          Expanded(
+            child: ListView.separated(
+              itemCount: 10,
+              itemBuilder: (context, index) {
+                return const TaskCard();
+              },
+              separatorBuilder: (context, index) {
+                return SizedBox(height: 8);
+              },
+            ),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -25,34 +38,23 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
     );
   }
 
-  Widget _buildSummarSection() {
+  Widget _buildSummarySection() {
     return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                TaskSummaryCard(
-                  count: 9,
-                  tittle: 'New',
-                ),
-                TaskSummaryCard(
-                  count: 9,
-                  tittle: 'Completed',
-                ),
-                TaskSummaryCard(
-                  count: 9,
-                  tittle: 'Cancelled',
-                ),
-                TaskSummaryCard(
-                  count: 9,
-                  tittle: 'Progress',
-                ),
-              ],
-            ),
-          ),
-        );
+      padding: const EdgeInsets.all(8.0),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            TaskSummaryCard(count: 9, tittle: 'New'),
+            TaskSummaryCard(count: 9, tittle: 'Completed'),
+            TaskSummaryCard(count: 9, tittle: 'Cancelled'),
+            TaskSummaryCard(count: 9, tittle: 'Progress'),
+          ],
+        ),
+      ),
+    );
   }
+
   void _onTapAddFAB() {
     Navigator.push(
       context,
