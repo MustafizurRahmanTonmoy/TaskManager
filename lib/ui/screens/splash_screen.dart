@@ -32,7 +32,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [SvgPicture.asset(AssetsPath.logoSvg, width: 128)],
+            children: [SvgPicture.asset(AssetsPath.logoSvg, width: 200)],
           ),
         ),
       ),

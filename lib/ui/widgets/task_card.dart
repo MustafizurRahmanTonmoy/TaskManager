@@ -58,7 +58,11 @@ class _TaskCardState extends State<TaskCard> {
             mainAxisSize: MainAxisSize.min,
             children:
                 ['New', 'Completed', 'Cancel', 'Progress'].map((e) {
-                  return ListTile(title: Text(e));
+                  return ListTile(
+                      onTap: (){
+
+                      },
+                      title: Text(e));
                 }).toList(),
           ),
           actions: [
