@@ -66,14 +66,32 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Widget _buildPhotoPicker() {
     return Container(
+      height: 50,
       decoration: BoxDecoration(
-
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.white,
       ),
       child: Row(
         children: [
           Container(
+            width: 100,
+            height: 50,
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              borderRadius: BorderRadius.only(
+                topLeft:  Radius.circular(8),
+                bottomLeft: Radius.circular(8),
+              ),
+            ),
+            alignment: Alignment.center,
+            child: Text('Photo',style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+              fontSize: 16,
+            ),),
           ),
-
+            const SizedBox(width: 8),
+            Text('Selected Photo'),
         ],
       ),
     );

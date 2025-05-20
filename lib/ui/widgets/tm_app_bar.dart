@@ -8,14 +8,10 @@ class TMAppBar extends StatelessWidget implements PreferredSizeWidget {
   this.isProfileScreenOpen = false,
   });
   final bool isProfileScreenOpen;
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if(isProfileScreenOpen) {
-          return;
-        }
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => ProfileScreen()),
