@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:task_manger/ui/screens/cancelled_task_screen.dart';
-import 'package:task_manger/ui/screens/completed_task_screen.dart';
-import 'package:task_manger/ui/screens/new_task_screen.dart';
-import 'package:task_manger/ui/screens/progress_task_screen.dart';
+import 'package:task_manger/ui/screens/buy_screen.dart';
+import 'package:task_manger/ui/screens/service_screen.dart';
+import 'package:task_manger/ui/screens/home_screen.dart';
+import 'package:task_manger/ui/screens/cart_screen.dart';
 import 'package:task_manger/ui/utils/app_colors.dart';
 
 import '../widgets/tm_app_bar.dart';
@@ -18,9 +18,9 @@ class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
   int _selectedIndex = 0;
   final List<Widget> _screens = const [
     NewTaskScreen(),
-    CompletedTaskScreen(),
-    CancelledTaskScreen(),
-    ProgressTaskScreen(),
+    ServiceScreen(),
+    BuyScreen(),
+    CartScreen(),
   ];
 
   @override
@@ -35,15 +35,19 @@ class _MainBottomNavBarScreenState extends State<MainBottomNavBarScreen> {
           setState(() {});
         },
         destinations: const [
-          NavigationDestination(icon: Icon(Icons.new_label), label: 'new'),
           NavigationDestination(
-            icon: Icon(Icons.check_box),
-            label: 'Completed',
+              icon: Icon(Icons.home_outlined),
+              label: 'Home'),
+          NavigationDestination(
+            icon: Icon(Icons.miscellaneous_services_outlined),
+            label: 'Service',
           ),
-          NavigationDestination(icon: Icon(Icons.close), label: 'Cancelled'),
           NavigationDestination(
-            icon: Icon(Icons.hourglass_bottom),
-            label: 'Progress',
+              icon: Icon(Icons.attach_money),
+              label: 'Buy'),
+          NavigationDestination(
+            icon: Icon(Icons.shopping_cart_outlined),
+            label: 'Cart',
           ),
         ],
       ),

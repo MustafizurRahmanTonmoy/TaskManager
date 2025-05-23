@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:task_manger/ui/widgets/task_card.dart';
 
-class CompletedTaskScreen extends StatelessWidget {
-  const CompletedTaskScreen({super.key});
+class BuyScreen extends StatelessWidget {
+  const BuyScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return  Center(
       child: ListView.separated(
         itemCount: 10,
         itemBuilder: (context, index) {

@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 class TaskSummaryCard extends StatelessWidget {
   const TaskSummaryCard({
-    super.key, required this.tittle, required this.count,
+    super.key, required this.title, this.date,
   });
 
-  final String tittle;
-  final int count;
+  final String title;
+  final String? date;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class TaskSummaryCard extends StatelessWidget {
       color: Colors.white,
       elevation: 0,
       child: SizedBox(
-        width: 120,
+        width: 170,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Padding(
@@ -23,12 +23,12 @@ class TaskSummaryCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('$count',style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                Text('$date',style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.w600
                 )),
                 const SizedBox(height: 4,),
                 FittedBox(
-                  child: Text(tittle,style: TextStyle(
+                  child: Text(title,style: TextStyle(
                       color: Colors.grey
                   ),),
                 ),

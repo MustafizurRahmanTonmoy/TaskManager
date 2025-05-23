@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task_manger/ui/screens/add_new_task_screen.dart';
+import 'package:task_manger/ui/screens/add_car_info.dart';
 import 'package:task_manger/ui/utils/app_colors.dart';
 import 'package:task_manger/ui/widgets/task_card.dart';
 import 'package:task_manger/ui/widgets/task_summary_card.dart';
@@ -45,10 +45,15 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
         scrollDirection: Axis.horizontal,
         child: Row(
           children: [
-            TaskSummaryCard(count: 9, tittle: 'New'),
-            TaskSummaryCard(count: 9, tittle: 'Completed'),
-            TaskSummaryCard(count: 9, tittle: 'Cancelled'),
-            TaskSummaryCard(count: 9, tittle: 'Progress'),
+            TaskSummaryCard(
+              title: 'Delivery Reminder',
+              date: '05/23/2025', // Example date; replace with dynamic data
+            ),
+            SizedBox(width: 8), // Add spacing between cards
+            TaskSummaryCard(
+              title: 'Previous Service',
+              date: '19/03/2025', // Example date; replace with dynamic data
+            ),
           ],
         ),
       ),
@@ -58,7 +63,7 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
   void _onTapAddFAB() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => AddNewTaskScreen()),
+      MaterialPageRoute(builder: (context) => AddNewCarInfo()),
     );
   }
 }
